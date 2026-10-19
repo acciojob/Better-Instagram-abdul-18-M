@@ -1,5 +1,3 @@
-```javascript
-// your code here
 
 let boxes = document.querySelectorAll("#container div");
 
@@ -28,4 +26,4 @@ boxes.forEach((box) => {
     });
 
 });
-```
+
