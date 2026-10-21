@@ -1,3 +1,4 @@
+
 let boxes = document.querySelectorAll("#parent .image");
 
 let draggedBox = null;
@@ -14,13 +15,18 @@ boxes.forEach((box) => {
   box.addEventListener("drop", function (evt) {
     evt.preventDefault();
 
-    if (draggedBox !== this) {
-      let draggedImage = getComputedStyle(draggedBox).backgroundImage;
-      let targetImage = getComputedStyle(this).backgroundImage;
+    if (draggedBox && draggedBox !== this) {
+      let temp = draggedBox.style.backgroundImage ||
+        getComputedStyle(draggedBox).backgroundImage;
 
-      draggedBox.style.backgroundImage = targetImage;
-      this.style.backgroundImage = draggedImage;
+      draggedBox.style.backgroundImage =
+        this.style.backgroundImage ||
+        getComputedStyle(this).backgroundImage;
+
+      this.style.backgroundImage = temp;
     }
+
+    draggedBox = null;
   });
 });
 
