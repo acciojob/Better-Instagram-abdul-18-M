@@ -1,11 +1,11 @@
 
-let boxes = document.querySelectorAll("#container div");
+let boxes = document.querySelectorAll("#parent .image");
 
 let draggedBox = null;
 
 boxes.forEach((box) => {
 
-    box.addEventListener("dragstart", function () {
+	    box.addEventListener("dragstart", function () {
         draggedBox = this;
     });
 
